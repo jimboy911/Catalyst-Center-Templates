@@ -1,0 +1,7 @@
+{% for int in __interface %}
+{% if int.interfaceType == 'Physical' and int.portMode != 'trunk' and not ('AppGigabit' in int.portName or '/1/' in int.portName) %}
+interface {{ int.portName }}
+ description Test20260923-1
+!
+{% endif %}
+{% endfor %}
