@@ -1,0 +1,13 @@
+{% set vlan_inventory = [
+    {"id": 910, "name": "TEST1"},
+    {"id": 920, "name": "TEST2"},
+    {"id": 930, "name": "TEST3"},
+    {"id": 940, "name": "TEST4"}
+] %}
+
+{# Loop through the inventory to provision each VLAN #}
+{% for vlan in vlan_inventory -%}
+vlan {{ vlan.id }}
+ name {{ vlan.name | upper }}
+!
+{% endfor %}
